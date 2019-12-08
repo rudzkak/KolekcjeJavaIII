@@ -1,3 +1,5 @@
+import katalog.Produkt;
+
 import java.util.Arrays;
 
 public class Tablice {
@@ -30,7 +32,7 @@ public class Tablice {
 
     }
 
-    public static Produkt[] dodajProdukt(Produkt [] tablica, Produkt produkt){
+    public static Produkt[] dodajProdukt(Produkt[] tablica, Produkt produkt){
         int dlugosc = tablica.length;
         Produkt [] nowaTablica = Arrays.copyOf(tablica, dlugosc + 1);
         nowaTablica[dlugosc] = produkt;

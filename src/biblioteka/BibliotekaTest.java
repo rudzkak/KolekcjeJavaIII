@@ -42,6 +42,34 @@ public class BibliotekaTest {
         System.out.println("III test: post" + półka1.getListaKiążek());
     }
 
+    public void przełóżKsiążke(){
+        System.out.println("IV test: pre ");
+        System.out.println(półka1);
+        System.out.println(półka3);
+        biblioteka.przelozKsiązke(półka1, półka3,panWolodyjowski);
+        System.out.println("IV test: post ");
+        System.out.println(półka1);
+        System.out.println(półka3);
+    }
+
+    public void opróżnijPółke(){
+        System.out.println("V test: pre ");
+        System.out.println(półka3);
+        biblioteka.opróżnijPółke(półka3);
+        System.out.println("V test: post ");
+        System.out.println(półka3);
+    }
+
+    public void liczbaPozycjiNaPółce(){
+        System.out.println("VI test: liczba pozycji na półce nr "
+                + półka2.getNumerPółki() + " " + biblioteka.liczbaPozycjiNaPółce(półka2));
+    }
+
+    public void numerPozycjiNaPółce(){
+        System.out.println("VII test: ");
+        System.out.println(biblioteka.numerPozycjiNaPółce(panWolodyjowski, półka3));
+    }
+
     public static void main(String[] args) {
 
         BibliotekaTest bibliotekaTest = new BibliotekaTest();
@@ -49,7 +77,10 @@ public class BibliotekaTest {
         bibliotekaTest.dodanieNaPółke();
         bibliotekaTest.wypiszZawartosc();
         bibliotekaTest.zdejmijKsiazki();
+        bibliotekaTest.przełóżKsiążke();
+        //bibliotekaTest.opróżnijPółke();
+        bibliotekaTest.liczbaPozycjiNaPółce();
+        bibliotekaTest.numerPozycjiNaPółce();
     }
-
 
 }

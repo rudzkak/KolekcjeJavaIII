@@ -1,3 +1,5 @@
+import katalog.Produkt;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -31,7 +33,7 @@ public class Kolekcje {
         }
         System.out.println("Wynik while'a : " + produkty);
 
-//        for (Produkt produkt : produkty) {
+//        for (katalog.Produkt produkt : produkty) {
 //            if (produkt.getWaga() > 20) {
 //                System.out.println(produkt);
 //            } else {

@@ -30,10 +30,10 @@ public class Produkt {
         this.waga = waga;
     }
 
-//    public static final Comparator<Produkt> BY_WAGA =
-//            new Comparator<Produkt>() {
+//    public static final Comparator<katalog.Produkt> BY_WAGA =
+//            new Comparator<katalog.Produkt>() {
 //                @Override
-//                public int compare(Produkt o1, Produkt o2) {
+//                public int compare(katalog.Produkt o1, katalog.Produkt o2) {
 //                    return Integer.compare(o1.getWaga(), o2.getWaga());
 //                }
 //            }
@@ -57,7 +57,7 @@ public class Produkt {
 
     @Override
     public String toString() {
-        return "Produkt{" +
+        return "katalog.Produkt{" +
                 "nazwa='" + nazwa + '\'' +
                 ", waga=" + waga +
                 '}';
