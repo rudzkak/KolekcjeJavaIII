@@ -2,6 +2,7 @@ package helpdesk;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.function.Predicate;
 
 public class Helpdesk {
 
@@ -28,17 +29,29 @@ public class Helpdesk {
     }
 
     public void procesujZgłoszeniaDrukarek(){
-        final Zgłoszenie zgłoszenie = zgłoszenia.peek();
-        if(zgłoszenie != null && zgłoszenie.getKategoria() == Kategoria.DRUKARKA){
-            zgłoszenia.remove();
-            zgłoszenie.getKlient().odpowiedź("Czy nie skończył się papier?");
-        } else {
-            System.out.println("Nie ma zgłoszeń");
-        }
+
+        Predicate<Zgłoszenie> warunek = (z -> z.getKategoria() == Kategoria.DRUKARKA);
+        String wiadomość = "Czy nie skończył się papier?";
+
+        procesujZgłoszenia(warunek, wiadomość);
     }
 
     public void procesujZgłoszeniaGeneralne(){
 
+        Predicate<Zgłoszenie> warunek = (z -> z.getKategoria() != Kategoria.DRUKARKA);
+        String wiadomość = "Czy próbowałeś/aś włączyć i wyłączyć?";
+
+        procesujZgłoszenia(warunek, wiadomość);
+    }
+
+    public void procesujZgłoszenia(Predicate<Zgłoszenie> warunek, String wiadomość) {
+        final Zgłoszenie zgłoszenie = zgłoszenia.peek();
+        if (zgłoszenie != null && warunek.test(zgłoszenie)) {
+            zgłoszenia.remove();
+            zgłoszenie.getKlient().odpowiedź(wiadomość);
+        } else {
+            System.out.println("Nie ma zgłoszeń");
+        }
     }
 
 
@@ -49,7 +62,11 @@ public class Helpdesk {
         helpdesk.zgłoszenie(Klient.AGNIESZKA, Kategoria.DRUKARKA);
         helpdesk.zgłoszenie(Klient.JACEK, Kategoria.KOMPUTER);
 
-        helpdesk.procesujWszystkieZgłoszenia();
+        //helpdesk.procesujWszystkieZgłoszenia();
+        helpdesk.procesujZgłoszeniaDrukarek();
+        helpdesk.procesujZgłoszeniaGeneralne();
+        helpdesk.procesujZgłoszeniaDrukarek();
+        helpdesk.procesujZgłoszeniaGeneralne();
 
 
     }
