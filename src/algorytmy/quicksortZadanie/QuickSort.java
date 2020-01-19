@@ -30,6 +30,7 @@ public class QuickSort {
         Osoba pivot = listaOsob.get(pivotIndeks);
 
         while (i<=j){
+
             while (listaOsob.get(i).compareTo(pivot) < 0){
                 i++;
             }
